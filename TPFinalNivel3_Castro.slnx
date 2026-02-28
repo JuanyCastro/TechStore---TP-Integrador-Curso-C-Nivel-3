@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="TPFinalNivel3_Castro/dominio/dominio.csproj" Id="d6e7925f-2ce3-46d6-ac98-d40c33f25db2" />
+  <Project Path="TPFinalNivel3_Castro/negocio/negocio.csproj" Id="096f3478-17f5-424d-8d8a-ac8fbbcad3a7" />
+  <Project Path="TPFinalNivel3_Castro/TPFinalNivel3_Castro.csproj" Id="e02e3658-0eec-47a1-87aa-7030a78a4eed" />
+</Solution>

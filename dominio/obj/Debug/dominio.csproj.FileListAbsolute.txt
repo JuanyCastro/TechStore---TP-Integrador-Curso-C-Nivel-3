@@ -1,0 +1,12 @@
+C:\Users\juany\OneDrive\Escritorio\Curso C# Nivel 2\TPFinalNivel2_Castro\dominio\bin\Debug\dominio.dll
+C:\Users\juany\OneDrive\Escritorio\Curso C# Nivel 2\TPFinalNivel2_Castro\dominio\bin\Debug\dominio.pdb
+C:\Users\juany\OneDrive\Escritorio\Curso C# Nivel 2\TPFinalNivel2_Castro\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\juany\OneDrive\Escritorio\Curso C# Nivel 2\TPFinalNivel2_Castro\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\juany\OneDrive\Escritorio\Curso C# Nivel 2\TPFinalNivel2_Castro\dominio\obj\Debug\dominio.dll
+C:\Users\juany\OneDrive\Escritorio\Curso C# Nivel 2\TPFinalNivel2_Castro\dominio\obj\Debug\dominio.pdb
+C:\Users\Juany\source\repos\TPFinalNivel3_Castro\TPFinalNivel3_Castro\dominio\bin\Debug\dominio.dll
+C:\Users\Juany\source\repos\TPFinalNivel3_Castro\TPFinalNivel3_Castro\dominio\bin\Debug\dominio.pdb
+C:\Users\Juany\source\repos\TPFinalNivel3_Castro\TPFinalNivel3_Castro\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\Juany\source\repos\TPFinalNivel3_Castro\TPFinalNivel3_Castro\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\Juany\source\repos\TPFinalNivel3_Castro\TPFinalNivel3_Castro\dominio\obj\Debug\dominio.dll
+C:\Users\Juany\source\repos\TPFinalNivel3_Castro\TPFinalNivel3_Castro\dominio\obj\Debug\dominio.pdb

@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TPFinalNivel3_Castro.SiteMaster" %>
+
+<%@ Import Namespace="negocio" %>
+<%@ Import Namespace="dominio" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - TechStore</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+    <form runat="server" class="h-100">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="page-wrapper d-flex flex-column min-vh-100">
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand fw-bold" runat="server" href="Default.aspx">TechStore</a>
+
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item"><a class="nav-link" runat="server" href="Default.aspx">Catálogo</a></li>
+                            <% if (negocio.Seguridad.esAdmin(Session["usuario"]))
+                                { %>
+                            <li class="nav-item"><a class="nav-link" runat="server" href="ListaArticulos.aspx">Lista Artículos</a></li>
+                            <% } %>
+                            <li class="nav-item"><a class="nav-link" runat="server" href="MiPerfil.aspx">Mi Perfil</a></li>
+                            <li class="nav-item"><a class="nav-link" runat="server" href="MisFavoritos.aspx">Mis Favoritos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <% if (!Seguridad.sesionActiva(Session["usuario"]))
+                            { %>
+                        <a href="Login.aspx" class="btn btn-outline-light me-2">Login</a>
+                        <a href="Registro.aspx" class="btn btn-primary rounded-pill">Registrarse</a>
+                        <% }
+                        else
+                        { %>
+                        <asp:Button Text="Salir" ID="btnSalir" CssClass="btn btn-sm btn-outline-danger me-3" OnClick="btnSalir_Click" runat="server" />
+                        <asp:Label ID="lblUser" Text="user" CssClass="text-light m-auto me-2 small" runat="server" />
+                        <asp:Image ID="imgAvatar" Style="height: 35px; width: 35px; border-radius: 50%; object-fit: cover;" runat="server" />
+                        <% } %>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="flex-grow-1 py-4">
+                <div class="container body-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </main>
+
+            <footer class="bg-dark text-light py-5 mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <h5 class="fw-bold">TechStore</h5>
+                            <p class="text-muted small">Trabajo Practico Integrador - Curso C# Nivel 3.<br />
+                                Desarrollado por Juan Castro.</p>
+                        </div>
+                        <div class="col-md-2 mb-3">
+                            <h5 class="small fw-bold text-uppercase text-secondary">Enlaces</h5>
+                            <ul class="nav flex-column small">
+                                <li class="nav-item mb-2"><a href="Default.aspx" class="nav-link p-0 text-muted">Inicio</a></li>
+                                <li class="nav-item mb-2"><a href="MiPerfil.aspx" class="nav-link p-0 text-muted">Mi Perfil</a></li>
+                                <li class="nav-item mb-2"><a href="MisFavoritos.aspx" class="nav-link p-0 text-muted">Favoritos</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <h5 class="small fw-bold text-uppercase text-secondary">Contacto</h5>
+                            <ul class="nav flex-column small text-muted">
+                                <li class="mb-1"><i class="fas fa-phone me-2"></i>+54 9 11 1234-5678</li>
+                                <li class="mb-1"><i class="fas fa-envelope me-2"></i>juanycastro2002@gmail.com</li>
+                                <li class="mb-1"><i class="fas fa-map-marker-alt me-2"></i>José C. Paz, Buenos Aires</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 mb-3 text-center">
+                            <h5 class="small fw-bold text-uppercase text-secondary">Código Fuente</h5>
+
+                            <a href="https://github.com/JuanyCastro/TechStore---TP-Integrador-Curso-C-Nivel-3.git" target="_blank" class="btn btn-sm btn-outline-light rounded-pill mt-2 px-4">
+                                <i class="fab fa-github me-2"></i>Repositorio en GitHub
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-secondary small text-muted">
+                        <p>&copy; <%: DateTime.Now.Year %> TechStore. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
